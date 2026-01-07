@@ -153,6 +153,84 @@
             transform: translateY(-1px);
         }
         
+        .apps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .app-link {
+            display: block;
+            text-decoration: none;
+            padding: 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .app-link:hover {
+            border-color: #667eea;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        
+        .app-link:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .app-link:hover .app-title {
+            color: #667eea;
+        }
+        
+        .app-description {
+            font-size: 0.9375rem;
+            color: #718096;
+            line-height: 1.5;
+        }
+        
+        .app-link::after {
+            content: '→';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5e0;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .app-link:hover::after {
+            color: #667eea;
+            transform: translateY(-50%) translateX(4px);
+        }
+        
         @media (max-width: 600px) {
             .container {
                 padding: 3rem 2rem;
@@ -172,6 +250,14 @@
                 font-size: 1rem;
                 padding: 0.875rem 1.75rem;
             }
+            
+            .app-link {
+                padding: 1.25rem;
+            }
+            
+            .app-title {
+                font-size: 1.125rem;
+            }
         }
     </style>
 </head>
@@ -179,6 +265,15 @@
     <div class="container">
         <img src="image.jpg" alt="GoodSpider, LLC Logo" class="logo">
         <h1>Welcome to GoodSpider, LLC</h1>
+        <div class="section">
+            <h2>Apps</h2>
+            <div class="apps-grid">
+                <a href="https://cyoabm.goodspider.net/" class="app-link" target="_blank" rel="noopener noreferrer">
+                    <div class="app-title">CYOABM</div>
+                    <div class="app-description">Create literary, branching adventures with rich text snippets and choices. Build interactive narratives in an organized workspace.</div>
+                </a>
+            </div>
+        </div>
         <div class="section">
             <h2>Contact</h2>
             <a href="mailto:hello@goodspider.net" class="contact-link">hello@goodspider.net</a>
